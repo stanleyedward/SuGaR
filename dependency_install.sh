@@ -1,5 +1,5 @@
 #!/bin/bash
-conda env create -f environment.yml
+conda env create -f environment.yml --yes
 conda activate sugar
 
 cd gaussian_splatting/submodules/diff-gaussian-rasterization/
