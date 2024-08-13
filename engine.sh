@@ -6,8 +6,9 @@ bash miniconda_install.sh
 bash preprocessing.sh inputs/ 3
 
 #conda install
-bash dependency_install.sh
+source dependency_install.sh
 
 #train
+mkdir outputs/
 bash start_train.sh
 

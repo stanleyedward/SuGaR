@@ -24,6 +24,8 @@ DATASET_PATH=$1
 # Recommended CAMERA values: OPENCV for perspective, OPENCV_FISHEYE for fisheye.
 CAMERA="${2:-PINHOLE}"
 
+# Resize images.
+mogrify -resize 1080x "$DATASET_PATH/images/*.jpg"
 
 # Run COLMAP.
 
@@ -39,7 +41,11 @@ colmap feature_extractor \
 
 ### Feature matching
 
-colmap exhaustive_matcher \
+#colmap exhaustive_matcher \
+#    --database_path "$DATASET_PATH"/database.db \
+#    --SiftMatching.use_gpu "$USE_GPU"
+
+colmap sequential_matcher \
     --database_path "$DATASET_PATH"/database.db \
     --SiftMatching.use_gpu "$USE_GPU"
 
@@ -76,8 +82,6 @@ colmap mapper \
 #     --output_type COLMAP
 
 # Resize images.
-
-mogrify -resize 600x "$DATASET_PATH/images/*.jpg"
 
 # cp -r "$DATASET_PATH"/images "$DATASET_PATH"/images_2
 

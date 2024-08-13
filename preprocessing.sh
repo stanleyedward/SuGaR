@@ -21,11 +21,10 @@ ffmpeg -i "$input_video" -qscale:v 1 -qmin 1 -vf fps=$fps $input_directory/image
 # Check if extraction was successful
 if [ $? -eq 0 ]; then
     echo "Extraction successful. Removing original video."
-    # rm "$input_video"     
+    rm "$input_video"     
 else
     echo "Extraction failed. Original video not removed."
 fi
 
 
 bash colmap_and_resize.sh inputs/
-mkdir outputs/

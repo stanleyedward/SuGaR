@@ -1,4 +1,7 @@
 #!/bin/bash
+source ~/.bashrc
+echo finished sourcing
+
 conda env create -f environment.yml --yes
 conda activate sugar
 
@@ -8,4 +11,4 @@ cd ../simple-knn/
 pip install -e .
 cd ../../../
 
-sudo apt install -y gltfpack unzip nano
+sudo apt install -y unzip nano 
