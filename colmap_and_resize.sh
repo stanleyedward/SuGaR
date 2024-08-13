@@ -41,13 +41,13 @@ colmap feature_extractor \
 
 ### Feature matching
 
-#colmap exhaustive_matcher \
-#    --database_path "$DATASET_PATH"/database.db \
-#    --SiftMatching.use_gpu "$USE_GPU"
+colmap exhaustive_matcher \
+   --database_path "$DATASET_PATH"/database.db \
+   --SiftMatching.use_gpu "$USE_GPU"
 
-colmap sequential_matcher \
-    --database_path "$DATASET_PATH"/database.db \
-    --SiftMatching.use_gpu "$USE_GPU"
+# colmap sequential_matcher \
+#     --database_path "$DATASET_PATH"/database.db \
+#     --SiftMatching.use_gpu "$USE_GPU"
 
 ## Use if your scene has > 500 images
 ## Replace this path with your own local copy of the file.
